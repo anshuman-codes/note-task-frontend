@@ -9,6 +9,17 @@ const Mainbar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("user is looged in");
+    const url = "https://notetask.herokuapp.com/users/login";
+    let bodyFormData = new FormData();
+    bodyFormData.set("email", email);
+    bodyFormData.set("password", password);
+    fetch(url, bodyFormData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
